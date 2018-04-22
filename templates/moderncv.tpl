@@ -34,8 +34,8 @@ $if(color)$
 \moderncvcolor{$color$} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 $endif$
 
-\usepackage[adobefonts,noindent]{ctex} %中文支持
-\setCJKmainfont{SimSun}
+\usepackage[fontset=adobe]{ctex} %中文支持
+\setCJKmainfont{Adobe Song Std}
 
 %\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 
