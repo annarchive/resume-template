@@ -36,4 +36,4 @@ sub-moderncv-%:
 all-moderncv: $(addprefix sub-moderncv-,$(ALL_STYLE))
 
 clean:
-	cd $(BUILD) && rm -f *.out *.aux *.log
+	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md

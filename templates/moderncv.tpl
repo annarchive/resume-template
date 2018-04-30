@@ -39,7 +39,7 @@ $endif$
 
 %\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 
-\usepackage[top=1cm,bottom=1cm,left=2cm,right=2cm]{geometry} % Reduce document margins
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry} % Reduce document margins
 \setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
 
