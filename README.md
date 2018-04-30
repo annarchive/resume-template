@@ -16,5 +16,24 @@ make
 
 按需生成简历
 ```
-NAME=xxx PHONE=111 GITHUB=xxx HOMEPAGE=xxx EMAIL=xxx TPL=moderncv COLOR=blue CONTENT=xxx.md make
+PHONE=111 GITHUB=xxx HOMEPAGE=xxx EMAIL=xxx TPL=moderncv.tpl COLOR=blue YAML=xxx.yml make
 ```
+
+## 预览
+
+### moderncv
+classic
+
+![](preview/moderncv-classic.jpg)
+
+banking
+
+![](preview/moderncv-banking.jpg)
+
+fancy
+
+![](preview/moderncv-fancy.jpg)
+
+oldstyle
+
+![](preview/moderncv-oldstyle.jpg)

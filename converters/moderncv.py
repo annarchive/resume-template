@@ -8,7 +8,7 @@ def entry(item, mode="classic"):
     md = "\n# " + item['title'] + '\n'
     for i in item['entrys']:
         if mode == "banking":
-            md = md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['section'] + "}{" + i['title'] + "}{" + i['major'] + "}{}\n"
+            md = md + "\cventry{" + i['date'] + "}{" + i['section'] + "}{" + i['entry'] + "}{" + i['title'] + "}{" + i['major'] + "}{}\n"
         else:
             md = md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['section'] + "}{" + i['title'] + "}{" + i['major'] + "}{}\n"
     return md
@@ -17,7 +17,7 @@ def project(item, mode="classic"):
     md = "\n# " + item['title'] + '\n'
     for i in item['entrys']:
         if mode == "banking":
-            md = md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['corp'] + "}{" + i['tech'] + "}{}{\n\\begin{itemize}\n"
+            md = md + "\cventry{" + i['date'] + "}{" + i['corp'] + "}{" + i['entry'] + "}{" + i['tech'] + "}{}{\n\\begin{itemize}\n"
         else:
             md = md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['corp'] + "}{" + i['tech'] + "}{}{\n\\begin{itemize}\n"
         for t in i['items']:
