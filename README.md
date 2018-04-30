@@ -3,7 +3,7 @@
 ## Requires
 1. LaTeX(texlive) with moderncv
 2. pandoc
-3. shyaml
+3. python3
 
 Windows上可以使用`msys2`搭建环境
 
@@ -22,18 +22,14 @@ PHONE=111 GITHUB=xxx HOMEPAGE=xxx EMAIL=xxx TPL=moderncv.tpl COLOR=blue YAML=xxx
 ## 预览
 
 ### moderncv
-classic
-
+#### classic
 ![](preview/moderncv-classic.jpg)
 
-banking
-
+#### banking
 ![](preview/moderncv-banking.jpg)
 
-fancy
-
+#### fancy
 ![](preview/moderncv-fancy.jpg)
 
-oldstyle
-
+#### oldstyle
 ![](preview/moderncv-oldstyle.jpg)
