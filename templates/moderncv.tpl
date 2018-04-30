@@ -78,7 +78,9 @@ $endif$
 %\social[twitter]{mengyingchina}
 %\social[github]{mengyingchina}
 %\extrainfo{additional information}
-%\photo[70pt][0.4pt]{sunwisespace} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+$if(photo)$
+\photo[55pt][0pt]{photo} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+$endif$
 %\quote{"A witty and playful quotation" - John Smith}
 
 %----------------------------------------------------------------------------------------
@@ -93,7 +95,7 @@ $body$
 %----------------------------------------------------------------------------------------
 %\section{求职意向}
 %%\subsection{求职意向}
-%\cventry{期望月薪：  面议}{应聘职位：初级硬件工程师}{\includegraphics[scale=0.43]{sunwisespace.jpg}}{}{}{}
+%\cventry{期望月薪：  面议}{应聘职位：初级硬件工程师}{\includegraphics[scale=1]{sunwisespace.jpg}}{}{}{}
 
 %----------------------------------------------------------------------------------------
 %   EDUCATION SECTION

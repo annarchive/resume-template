@@ -1,69 +1,69 @@
+name: å§“å
+title: XXå·¥ç¨‹å¸ˆ
 spec:
 -
-  title: ½ÌÓı±³¾°
+  title: æ•™è‚²èƒŒæ™¯
   type: entry
   entrys:
-  - entry: XX´óÑ§
+  - entry: XXå¤§å­¦
     date: 2010.9 - 2014.7
-    section: XXÑ§Ôº
-    major: XX×¨Òµ
-    title: Ë¶Ê¿ÑĞ¾¿Éú
+    section: XXå­¦é™¢
+    major: XXä¸“ä¸š
+    title: ç¡•å£«ç ”ç©¶ç”Ÿ
   
-  - entry: XX´óÑ§
+  - entry: XXå¤§å­¦
     date: 2010.9 - 2010.9
-    section: XXÑ§Ôº
-    major: XX×¨Òµ
-    title: ±¾¿Æ
+    section: XXå­¦é™¢
+    major: XXä¸“ä¸š
+    title: æœ¬ç§‘
   
 -
-  title: ¹¤×÷¾­Àú
+  title: å·¥ä½œç»å†
   type: entry
   entrys:
-  - entry: XX¹«Ë¾
-    section: XX²¿ÃÅ
-    title: XX¹¤³ÌÊ¦
+  - entry: XXå…¬å¸
+    section: XXéƒ¨é—¨
+    title: XXå·¥ç¨‹å¸ˆ
     date: 2014.7 - 2016.7
-    major: XXÏîÄ¿
+    major: XXé¡¹ç›®
     
-  - entry: XX¹«Ë¾
-    section: XX²¿ÃÅ
-    title: XX¹¤³ÌÊ¦
+  - entry: XXå…¬å¸
+    section: XXéƒ¨é—¨
+    title: XXå·¥ç¨‹å¸ˆ
     date: 2014.7 - 2016.7
-    major: XXÏîÄ¿
+    major: XXé¡¹ç›®
   
 - 
-  title: ÏîÄ¿¾­Ñé
+  title: é¡¹ç›®ç»éªŒ
   type: project
   entrys:
-  - entry: »ùÓÚiTopµÄÔËÎ¬ÌåÏµ½¨Éè
-    corp: XX¹«Ë¾    # ÔÚÄÄ¸ö¹«Ë¾µÄÏîÄ¿
+  - entry: åŸºäºiTopçš„è¿ç»´ä½“ç³»å»ºè®¾
+    corp: XXå…¬å¸    # åœ¨å“ªä¸ªå…¬å¸çš„é¡¹ç›®
     date: 2016.7 - 2016.9
-    tech: iTop£¬PHP
+    tech: iTopï¼ŒPHP
     items:
-    - item:
-      desc: description of this project
-      work: what you do for this project
-      effect: what effect of this project
+      - èƒŒæ™¯
+      - å†…å®¹
+      - æˆæœ
   
-  - entry: ¼à¿ØÌåÏµÓÅ»¯
-    corp: XX¹«Ë¾    # ÔÚÄÄ¸ö¹«Ë¾µÄÏîÄ¿
+  - entry: ç›‘æ§ä½“ç³»ä¼˜åŒ–
+    corp: XXå…¬å¸    # åœ¨å“ªä¸ªå…¬å¸çš„é¡¹ç›®
     date: 2016.7 - 2016.9
-    tech: Zabbix£¬Grafana£¬InfluxDB
+    tech: Zabbixï¼ŒGrafanaï¼ŒInfluxDB
     items:
-    - item:
-      desc: description of this project
-      work: what you do for this project
-      effect: what effect of this project
+      - èƒŒæ™¯
+      - å†…å®¹
+      - æˆæœ
       
   
 -
-  title: ÆäËûĞÅÏ¢
-  type: item
+  title: å…¶ä»–ä¿¡æ¯
+  type: cvitem
   entrys:
-  - cvitem: ¼¼Êõ
-    desc: ÊìÏ¤XXX¼¼Êõ£¬ÕÆÎÕXXX£¬ÁË½âXXX
-  - cvitem: ĞËÈ¤°®ºÃ
-    desc: Î§Æå
-  - cvitem: Ö¤Êé
-    desc: CCNA£¬Ó¢ÓïËÄ¼¶£¬ÍøÂç¹¤³ÌÊ¦
+  - cvitem: æŠ€æœ¯
+    desc: ç†Ÿæ‚‰XXXæŠ€æœ¯ï¼ŒæŒæ¡XXXï¼Œäº†è§£XXX
+  - cvitem: å…´è¶£çˆ±å¥½
+    desc: å›´æ£‹
+  - cvitem: è¯ä¹¦
+    desc: CCNAï¼Œè‹±è¯­å››çº§ï¼Œç½‘ç»œå·¥ç¨‹å¸ˆ
   
