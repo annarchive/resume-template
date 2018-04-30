@@ -1,0 +1,69 @@
+spec:
+-
+  title: 教育背景
+  type: entry
+  entrys:
+  - entry: XX大学
+    date: 2010.9 - 2014.7
+    section: XX学院
+    major: XX专业
+    title: 硕士研究生
+  
+  - entry: XX大学
+    date: 2010.9 - 2010.9
+    section: XX学院
+    major: XX专业
+    title: 本科
+  
+-
+  title: 工作经历
+  type: entry
+  entrys:
+  - entry: XX公司
+    section: XX部门
+    title: XX工程师
+    date: 2014.7 - 2016.7
+    major: XX项目
+    
+  - entry: XX公司
+    section: XX部门
+    title: XX工程师
+    date: 2014.7 - 2016.7
+    major: XX项目
+  
+- 
+  title: 项目经验
+  type: project
+  entrys:
+  - entry: 基于iTop的运维体系建设
+    corp: XX公司    # 在哪个公司的项目
+    date: 2016.7 - 2016.9
+    tech: iTop，PHP
+    items:
+    - item:
+      desc: description of this project
+      work: what you do for this project
+      effect: what effect of this project
+  
+  - entry: 监控体系优化
+    corp: XX公司    # 在哪个公司的项目
+    date: 2016.7 - 2016.9
+    tech: Zabbix，Grafana，InfluxDB
+    items:
+    - item:
+      desc: description of this project
+      work: what you do for this project
+      effect: what effect of this project
+      
+  
+-
+  title: 其他信息
+  type: item
+  entrys:
+  - cvitem: 技术
+    desc: 熟悉XXX技术，掌握XXX，了解XXX
+  - cvitem: 兴趣爱好
+    desc: 围棋
+  - cvitem: 证书
+    desc: CCNA，英语四级，网络工程师
+  
