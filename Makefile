@@ -10,6 +10,8 @@ ALL_COLOR = blue orange green red purple grey black
 PHOTO ?= static/photo.png
 YAML ?= sample.yml
 BUILD = build
+REPO ?= annprog/resume-template
+TAG ?= latest
 
 all: all-moderncv clean
 
@@ -34,6 +36,9 @@ sub-moderncv-%:
 	$(MAKE) STYLE=$* moderncv
 	
 all-moderncv: $(addprefix sub-moderncv-,$(ALL_STYLE))
+
+docker:
+	docker build -t $(REPO):$(TAG) .
 
 clean:
 	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md
