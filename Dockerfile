@@ -18,6 +18,8 @@ RUN	apt-get update --fix-missing && \
 	apt-get clean all && \
 	rm -rf /var/lib/apt/lists/*
 
+COPY fonts /usr/share/fonts
+
 RUN apt-get update --fix-missing && \
 	apt-get install -y --no-install-recommends wget xzdec gnupg fontconfig && \
 	tlmgr init-usertree && \
@@ -27,21 +29,24 @@ RUN apt-get update --fix-missing && \
 	tlmgr install moderncv && \
 	tlmgr install ulem && \
 	tlmgr install zhnumber && \
+	tlmgr install fontawesome && \
 	apt-get remove -y wget xzdec gnupg && \
 	apt autoremove -y && \
 	apt-get clean all && \
 	rm -rf /var/lib/apt/lists/*
 
 COPY converters /home/resume/converters
-COPY Makefile /home/resume
 COPY static /home/resume/static
-COPY sample.yml /home/resume
+COPY sample.yml /home/resume/
 COPY templates /home/resume/templates
-COPY fonts /usr/share/fonts
 
 RUN sed -i 's/python3/python2.7/g' /home/resume/converters/moderncv.py && \
 	sed -i 's/^import sys/import sys\nreload(sys)\nsys.setdefaultencoding("utf-8")/g' /home/resume/converters/moderncv.py
 	
 VOLUME ["/home/resume/build"]
 
-CMD ["make"]
+ADD init.sh /
+
+COPY Makefile /home/resume/
+
+CMD ["/bin/bash"]

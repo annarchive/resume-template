@@ -10,8 +10,10 @@ ALL_COLOR = blue orange green red purple grey black
 PHOTO ?= static/photo.png
 YAML ?= sample.yml
 BUILD = build
+WORK ?= work
 REPO ?= annprog/resume-template
 TAG ?= latest
+PWD := $(shell pwd)
 
 all: all-moderncv clean
 
@@ -40,5 +42,13 @@ all-moderncv: $(addprefix sub-moderncv-,$(ALL_STYLE))
 docker:
 	docker build -t $(REPO):$(TAG) .
 
+run-docker:
+	test -d $(BUILD) || mkdir -p $(BUILD)
+	test -d $(WORK) || mkdir -p $(WORK)
+	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TPL) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK)
+
+enter-docker:
+	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG)
+	
 clean:
 	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md
