@@ -25,6 +25,28 @@ YAML=work/ann.yml make
 PHONE=111 GITHUB=xxx HOMEPAGE=xxx EMAIL=xxx TPL=moderncv.tpl COLOR=blue YAML=xxx.yml make
 ```
 
+## 使用容器
+### 构建镜像
+```
+make docker
+```
+
+### 生成示例简历
+```
+make run-docker
+```
+
+### 进入容器使用
+```
+make enter-docker
+cd /home/resume
+```
+
+容器会挂载 `build/`, `work/` 目录，建议将个人简历的yaml文件及照片文件存放在`work/`目录下，然后通过变量指定：
+```
+PHOTO=work/photo.png YAML=work/ann.yml make run-docker
+```
+
 ## 预览
 
 ### moderncv
