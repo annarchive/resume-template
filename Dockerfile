@@ -58,6 +58,7 @@ RUN apt-get update --fix-missing && \
 	moderncv \
 	ulem \
 	zhnumber \
+	changepage \
 	fontawesome && \
 	apt-get remove -y wget xzdec gnupg perl perl-modules* && \
 	apt autoremove -y && \
@@ -77,5 +78,7 @@ VOLUME ["/home/resume/build"]
 ADD init.sh /
 
 COPY Makefile /home/resume/
+
+RUN apt-get update && apt-get install -y --no-install-recommends python2.7-minimal
 
 CMD ["/bin/bash"]
