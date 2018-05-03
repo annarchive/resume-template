@@ -81,4 +81,6 @@ COPY Makefile /home/resume/
 
 RUN apt-get update && apt-get install -y --no-install-recommends python2.7-minimal
 
+RUN cp /opt/texlive/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/local.conf && fc-cache -fv
+
 CMD ["/bin/bash"]
