@@ -1,0 +1,10 @@
+selected_scheme scheme-infraonly
+TEXDIR /opt/texlive
+TEXMFCONFIG ~/.texlive/texmf-config
+TEXMFHOME ~/texmf
+TEXMFLOCAL /opt/texlive/texmf-local
+TEXMFSYSCONFIG /opt/texlive/texmf-config
+TEXMFSYSVAR /opt/texlive/texmf-var
+TEXMFVAR ~/.texlive/texmf-var
+option_doc 0
+option_src 0
