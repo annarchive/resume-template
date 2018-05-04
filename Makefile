@@ -18,11 +18,9 @@ PWD := $(shell pwd)
 ARCH := $(shell uname -s)
 
 ifeq ($(ARCH), Linux)
-	FONT := FandolSong
-	FONTSET := fandol
+	FONT := WenQuanYi Micro Hei
 else
 	FONT := SimSun
-	FONTSET := windows
 endif
 
 FONT ?= $(FONT)
@@ -42,8 +40,7 @@ moderncv:
 	-V homepage=$(HOMEPAGE) \
 	-V github=$(GITHUB) \
 	-V color=$(COLOR) \
-	-V font=$(FONT) \
-	-V fontset=$(FONTSET) \
+	-V font="$(FONT)" \
 	-V style=$(STYLE)
 	cp -f $(PHOTO) $(BUILD)/photo.png
 	cd $(BUILD) && \

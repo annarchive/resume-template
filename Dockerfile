@@ -16,6 +16,7 @@ RUN	apt-get update --fix-missing && \
 	wget xzdec gnupg perl-modules perl \
 	make enca pandoc \
 	ghostscript \
+	fonts-wqy-* \
 	fontconfig && \
 	pip3 install pyyaml && \
 	wget https://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz && \
@@ -49,7 +50,7 @@ RUN	apt-get update --fix-missing && \
 	pgf \
 	colortbl \
 	xcolor \
-	ctex fandol \
+	ctex \
 	moderncv marvosym gsftopk \
 	ulem \
 	zhnumber \
