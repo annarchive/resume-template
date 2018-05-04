@@ -8,8 +8,17 @@ $if(color)$
 \moderncvcolor{$color$} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
 $endif$
 
-\usepackage[fontset=adobe]{ctex} %中文支持
-\setCJKmainfont{Adobe Song Std}
+$if(fontset)$
+\usepackage[fontset=$fontset$]{ctex} %中文支持
+$else$
+\usepackage[fontset=windows]{ctex} %中文支持
+$endif$
+
+$if(font)$
+\setCJKmainfont{$font$}
+$else$
+\setCJKmainfont{SimSun}
+$endif$
 
 \usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry} % Reduce document margins
 \setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column

@@ -15,6 +15,19 @@ REPO ?= annprog/resume-template
 TAG ?= latest
 PWD := $(shell pwd)
 
+ARCH := $(shell uname -s)
+
+ifeq ($(ARCH), Linux)
+	FONT := FandolSong
+	FONTSET := fandol
+else
+	FONT := SimSun
+	FONTSET := windows
+endif
+
+FONT ?= $(FONT)
+FONTSET ?= $(FONTSET)
+
 all: all-moderncv clean
 
 moderncv:
@@ -29,6 +42,8 @@ moderncv:
 	-V homepage=$(HOMEPAGE) \
 	-V github=$(GITHUB) \
 	-V color=$(COLOR) \
+	-V font=$(FONT) \
+	-V fontset=$(FONTSET) \
 	-V style=$(STYLE)
 	cp -f $(PHOTO) $(BUILD)/photo.png
 	cd $(BUILD) && \
@@ -45,10 +60,10 @@ docker:
 run-docker:
 	test -d $(BUILD) || mkdir -p $(BUILD)
 	test -d $(WORK) || mkdir -p $(WORK)
-	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TPL) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK)
+	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TPL) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK)
 
 enter-docker:
-	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG)
+	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) -v /usr/share/fonts:/usr/share/fonts/fonts $(REPO):$(TAG)
 	
 clean:
 	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md

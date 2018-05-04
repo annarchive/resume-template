@@ -47,6 +47,9 @@ cd /home/resume
 PHOTO=work/photo.png YAML=work/ann.yml make run-docker
 ```
 
+### 字体
+`fonts`目录会被打包进docker镜像，`make enter-docker`和`make run-docker`命令会挂载 `/usr/share/fonts`目录到容器中，因此容器中可以使用宿主机上的字体
+
 ## 预览
 
 ### moderncv

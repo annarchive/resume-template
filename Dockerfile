@@ -4,7 +4,6 @@ ENV TIMEZONE Asia/Shanghai
 ENV LANG=C.UTF-8
 ENV PATH=/opt/texlive/bin/x86_64-linux:$PATH
 
-COPY fonts /usr/share/fonts
 ADD texlive.profile /root/
 
 RUN mkdir -p /home/resume/ && \
@@ -12,17 +11,13 @@ RUN mkdir -p /home/resume/ && \
 	sed -i 's/security.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 RUN	apt-get update --fix-missing && \
-	apt-get install -y --no-install-recommends python-pip python-setuptools fontconfig && \
-	pip install pyyaml && \
-	apt-get install -y --no-install-recommends make enca pandoc && \
-	apt-get remove -y python-pip python-setuptools && \
-	apt autoremove -y && \
-	apt-get clean all && \
-	rm -rf /var/lib/apt/lists/*
-
-
-RUN apt-get update --fix-missing && \
-	apt-get install -y --no-install-recommends wget xzdec gnupg perl-modules perl && \
+	apt-get install -y --no-install-recommends \
+	python3-minimal python3-pip python3-setuptools \
+	wget xzdec gnupg perl-modules perl \
+	make enca pandoc \
+	ghostscript \
+	fontconfig && \
+	pip3 install pyyaml && \
 	wget https://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz && \
 	tar zxvf install-tl-unx.tar.gz && \
 	cd install-tl-20* && \
@@ -54,33 +49,28 @@ RUN apt-get update --fix-missing && \
 	pgf \
 	colortbl \
 	xcolor \
-	ctex \
-	moderncv \
+	ctex fandol \
+	moderncv marvosym gsftopk \
 	ulem \
 	zhnumber \
 	changepage \
 	fontawesome && \
-	apt-get remove -y wget xzdec gnupg perl perl-modules* && \
+	mktexpk --mfmode / --bdpi 600 --mag 0+540/600 --dpi 540 umvs && \
+	mktexpk --mfmode / --bdpi 600 --mag 1+264/600 --dpi 864 umvs && \
+	apt-get remove -y wget xzdec gnupg perl perl-modules* python3-pip python3-setuptools python2.7* ghostscript && \
 	apt autoremove -y && \
 	apt-get clean all && \
-	rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/* && \
+	cp /opt/texlive/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/local.conf && \
+	fc-cache -fv
 
 COPY converters /home/resume/converters
 COPY static /home/resume/static
 COPY sample.yml /home/resume/
 COPY templates /home/resume/templates
-
-RUN sed -i 's/python3/python2.7/g' /home/resume/converters/moderncv.py && \
-	sed -i 's/^import sys/import sys\nreload(sys)\nsys.setdefaultencoding("utf-8")/g' /home/resume/converters/moderncv.py
-	
-VOLUME ["/home/resume/build"]
-
 ADD init.sh /
-
 COPY Makefile /home/resume/
 
-RUN apt-get update && apt-get install -y --no-install-recommends python2.7-minimal
-
-RUN cp /opt/texlive/texmf-var/fonts/conf/texlive-fontconfig.conf /etc/fonts/local.conf && fc-cache -fv
+VOLUME ["/home/resume/build"]
 
 CMD ["/bin/bash"]
