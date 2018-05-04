@@ -56,10 +56,33 @@ spec:
       - 内容
       - 成果
       
+-
+  title: 技能
+  type: doubleitem      # 两列，可以用排版技能
+  entrys:
+  - item: 语言
+    desc: C/C++，PHP，Java，Golang
+  - item: 工具
+    desc: \\latex，pandoc，Markdown
+  - item: 数据库
+    desc: MySQL，Mongo
+  - item: 云计算
+    desc: OpenStack，Docker，Kubernetes
+
+-
+  title: 语言能力
+  type: itemwithcomment   # 带评价的项目，项目名称 + 描述 + 评价 适合排版语言能力
+  entrys:
+  - item: 汉语
+    desc: 母语
+    comment: 母语
+  - item: 英语
+    desc: 熟练
+    comment: 英语六级，托福xxx分
   
 -
   title: 其他信息
-  type: cvitem
+  type: cvitem      # 普通列表 项目名称 + 描述
   entrys:
   - cvitem: 技术
     desc: 熟悉XXX技术，掌握XXX，了解XXX
