@@ -1,4 +1,5 @@
 TPL ?= templates/moderncv.tpl
+QUOTE ?= 
 STYLE ?= classic
 PHONE ?= 13*~****~**60
 EMAIL ?= me@annhe.net
@@ -41,6 +42,7 @@ moderncv:
 	-V github=$(GITHUB) \
 	-V color=$(COLOR) \
 	-V font="$(FONT)" \
+	-V quote="$(QUOTE)" \
 	-V style=$(STYLE)
 	cp -f $(PHOTO) $(BUILD)/photo.png
 	cd $(BUILD) && \
@@ -57,7 +59,7 @@ docker:
 run-docker:
 	test -d $(BUILD) || mkdir -p $(BUILD)
 	test -d $(WORK) || mkdir -p $(WORK)
-	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TPL) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK)
+	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TPL) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK) "$(FONT)" "$(QUOTE)"
 
 enter-docker:
 	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) -v /usr/share/fonts:/usr/share/fonts/fonts $(REPO):$(TAG)

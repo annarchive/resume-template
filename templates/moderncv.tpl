@@ -56,7 +56,10 @@ $endif$
 $if(photo)$
 \photo[55pt][0pt]{photo} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
 $endif$
-%\quote{"A witty and playful quotation" - John Smith}
+
+$if(quote)$
+\quote{$quote$}
+$endif$
 
 %----------------------------------------------------------------------------------------
 
