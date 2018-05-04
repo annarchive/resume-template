@@ -51,16 +51,4 @@ PHOTO=work/photo.png YAML=work/ann.yml make run-docker
 `fonts`目录会被打包进docker镜像，`make enter-docker`和`make run-docker`命令会挂载 `/usr/share/fonts`目录到容器中，因此容器中可以使用宿主机上的字体
 
 ## 预览
-
-### moderncv
-#### classic
-![](preview/moderncv-classic.jpg)
-
-#### banking
-![](preview/moderncv-banking.jpg)
-
-#### fancy
-![](preview/moderncv-fancy.jpg)
-
-#### oldstyle
-![](preview/moderncv-oldstyle.jpg)
+请进入preview目录：[preview/](https://github.com/annProg/resume-template/tree/master/preview)

@@ -11,6 +11,7 @@ ALL_COLOR = blue orange green red purple grey black
 PHOTO ?= static/photo.png
 YAML ?= sample.yml
 BUILD = build
+PREVIEW = preview
 WORK ?= work
 REPO ?= annprog/resume-template
 TAG ?= latest
@@ -64,5 +65,13 @@ run-docker:
 enter-docker:
 	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) -v /usr/share/fonts:/usr/share/fonts/fonts $(REPO):$(TAG)
 	
+preview:
+	test -d $(PREVIEW) || mkdir -p $(PREVIEW)
+	for pdf in `ls $(BUILD)/*.pdf`; \
+	do \
+		n=`echo $$pdf|cut -f2 -d'/' |cut -f1 -d'.'`; \
+		pdftopng $$pdf $(PREVIEW)/$$n; \
+	done
+    
 clean:
 	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md
