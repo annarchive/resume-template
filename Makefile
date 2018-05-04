@@ -1,5 +1,4 @@
 TPL ?= templates/moderncv.tpl
-QUOTE ?= 
 STYLE ?= classic
 PHONE ?= 13*~****~**60
 EMAIL ?= me@annhe.net
@@ -21,12 +20,13 @@ ARCH := $(shell uname -s)
 
 ifeq ($(ARCH), Linux)
 	FONT := WenQuanYi Micro Hei
+	QUOTE=$(shell ./converters/quote.py $(YAML))
 else
 	FONT := SimSun
+	QUOTE=$(shell ./converters/quote.py $(YAML) |iconv -f gbk -t utf-8)
 endif
 
 FONT ?= $(FONT)
-FONTSET ?= $(FONTSET)
 
 all: all-moderncv clean
 

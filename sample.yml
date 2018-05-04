@@ -1,5 +1,6 @@
 name: 姓名
 title: XX工程师
+quote: 自我介绍（可选项，如不需要请设置为null）
 spec:
 -
   title: 教育背景
