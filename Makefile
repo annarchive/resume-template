@@ -11,6 +11,7 @@ WORK ?= work
 REPO ?= annprog/resume-template
 TAG ?= latest
 PWD := $(shell pwd)
+SED_I = sed -i -r
 
 ARCH := $(shell uname -s)
 
@@ -40,7 +41,7 @@ ifeq ($(TYPE), limecv)
 	COLOR = none
 endif
 
-all: all-moderncv clean
+all: all-moderncv limecv clean
 
 pdf:
 	test -d $(BUILD) || mkdir -p $(BUILD)
@@ -58,12 +59,18 @@ pdf:
 	-V quote="$(QUOTE)" \
 	-V style=$(STYLE)
 	cp -f $(PHOTO) $(BUILD)/photo.png
+	# pandoc不能正确处理latex命令选项
 	cd $(BUILD) && \
+	$(SED_I) 's|\{\[\}|\[|g' $(TYPE)-$(STYLE)-$(COLOR).tex && \
+	$(SED_I) 's|\{\]\}|\]|g' $(TYPE)-$(STYLE)-$(COLOR).tex && \
 	xelatex $(TYPE)-$(STYLE)-$(COLOR).tex
 	
 moderncv: 
 	$(MAKE) TYPE=moderncv pdf
+	
+# limecv需要编译2遍
 limecv:
+	$(MAKE) TYPE=limecv pdf
 	$(MAKE) TYPE=limecv pdf
 	
 sub-moderncv-%:
@@ -89,6 +96,6 @@ preview:
 		n=`echo $$pdf|cut -f2 -d'/' |cut -f1 -d'.'`; \
 		pdftopng $$pdf $(PREVIEW)/$$n; \
 	done
-    
+	
 clean:
 	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md

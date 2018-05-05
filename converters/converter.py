@@ -3,6 +3,7 @@
 
 import sys
 from moderncv import ModernCV
+from limecv import LimeCV
 
 cvtype = sys.argv[1]
 yaml = sys.argv[2]

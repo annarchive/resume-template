@@ -52,6 +52,7 @@ RUN	apt-get update --fix-missing && \
 	xcolor \
 	ctex \
 	moderncv marvosym gsftopk \
+	limecv parskip xstring xkeyval fira cleveref listings \
 	ulem \
 	zhnumber \
 	changepage \

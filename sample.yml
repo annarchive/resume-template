@@ -113,7 +113,7 @@ spec:
 
 -
   title: 其他信息
-  type: cvitem      # 普通列表 项目名称 + 描述
+  type: cvitem      # 普通列表 项目名称 + 描述  limecv模板中此类型无效
   entrys:
   - cvitem: 技术
     desc: 熟悉XXX技术，掌握XXX，了解XXX
