@@ -28,12 +28,24 @@ def project(item, mode="classic"):
 def cvitem(item, mode="classic"):
     md = "\n# " + item['title'] + '\n'
     for i in item['entrys']:
-        if mode == "banking":
-            md = md + "\cvitem{" + i['cvitem'] + "}{" + i['desc'] + "}\n"
-        else:
-            md = md + "\cvitem{" + i['cvitem'] + "}{" + i['desc'] + "}\n"
+        md = md + "\cvitem{" + i['cvitem'] + "}{" + i['desc'] + "}\n"
     return md
-        
+
+def doubleitem(item, mode="classic"):
+    md = "\n# " + item['title'] + '\n'
+    l = len(item['entrys'])
+    i = 0
+    while i < l:
+        md = md + "\cvdoubleitem{" + item['entrys'][i]['item'] + "}{" + item['entrys'][i]['desc'] + "}{" +  item['entrys'][i+1]['item'] + "}{" + item['entrys'][i+1]['desc'] + "}\n"
+        i = i + 2
+    return md
+    
+def itemwithcomment(item, mode="classic"):
+    md = "\n# " + item['title'] + '\n'
+    for i in item['entrys']:
+        md = md + "\cvitemwithcomment{" + i['item'] + "}{" + i['desc'] + "}{" + i['comment'] + "}\n"
+    return md
+    
 def main(spec, mode="classic"):
     md = ""
     for i in spec:
@@ -44,6 +56,10 @@ def main(spec, mode="classic"):
             md = md + project(i,mode)
         if f == 'cvitem':
             md = md + cvitem(i,mode)
+        if f == 'doubleitem':
+            md = md + doubleitem(i,mode)
+        if f == 'itemwithcomment':
+            md = md + itemwithcomment(i,mode)
     return md
     
 if __name__ == '__main__':

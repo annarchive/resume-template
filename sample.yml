@@ -61,9 +61,9 @@ spec:
   type: doubleitem      # 两列，可以用排版技能
   entrys:
   - item: 语言
-    desc: C/C++，PHP，Java，Golang
+    desc: PHP，Java，Golang
   - item: 工具
-    desc: \\latex，pandoc，Markdown
+    desc: \LaTeX，pandoc，Markdown
   - item: 数据库
     desc: MySQL，Mongo
   - item: 云计算
