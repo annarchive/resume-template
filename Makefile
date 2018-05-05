@@ -64,7 +64,7 @@ pdf:
 moderncv: 
 	$(MAKE) TYPE=moderncv pdf
 limecv:
-	$(MAKE) TYPT=limecv pdf
+	$(MAKE) TYPE=limecv pdf
 	
 sub-moderncv-%:
 	$(MAKE) STYLE=$* moderncv
