@@ -1,4 +1,4 @@
-name: 姓名
+name: 姓\ 名    # 英文名空格可以使用 '\ '
 title: XX工程师
 quote: 自我介绍（可选项，如不需要请设置为null）
 spec:
