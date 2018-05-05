@@ -8,9 +8,9 @@ class ModernCV(CV):
     def entry(self, item, mode="classic"):
         for i in item['entrys']:
             if mode == "banking":
-                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['section'] + "}{" + i['entry'] + "}{" + i['title'] + "}{" + i['major'] + "}{}\n"
+                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['section'] + "}{" + i['entry'] + "}{" + i['title'] + "}{" + i['major'] + "}{" + self.tostr(i['desc']) + "}\n"
             else:
-                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['section'] + "}{" + i['title'] + "}{" + i['major'] + "}{}\n"
+                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['section'] + "}{" + i['title'] + "}{" + i['major'] + "}{" + self.tostr(i['desc']) + "}\n"
         
     def project(self, item, mode="classic"):
         for i in item['entrys']:
