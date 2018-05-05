@@ -80,7 +80,7 @@ spec:
   - item: Kubernetes
     score: 1
     tag: 云计算
-  - item: MySQL,Mongo
+  - item: MySQL，Mongo
     score: 3
     tag: 数据库
   - item: OpenStack
