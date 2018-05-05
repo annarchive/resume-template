@@ -1,38 +1,43 @@
+# 留空的项目可以设置为null，spec中不需要的type可以删除
 name: 姓\ 名    # 英文名空格可以使用 '\ '
 title: XX工程师
 quote: 自我介绍（可选项，如不需要请设置为null）
 spec:
 -
   title: 教育背景
-  type: entry
+  type: education   # 教育背景
   entrys:
   - entry: XX大学
     date: 2010.9 - 2014.7
     section: XX学院
     major: XX专业
     title: 硕士研究生
+    desc: 主修XXX，GPA xxx，RANK 100/100
   
   - entry: XX大学
     date: 2010.9 - 2010.9
     section: XX学院
     major: XX专业
     title: 本科
+    desc: 主修XXX，GPA xxx，RANK 100/100
   
 -
   title: 工作经历
-  type: entry
+  type: experience    # 工作经历类型
   entrys:
   - entry: XX公司
     section: XX部门
     title: XX工程师
     date: 2014.7 - 2016.7
     major: XX项目
+    desc: null
     
   - entry: XX公司
     section: XX部门
     title: XX工程师
     date: 2014.7 - 2016.7
     major: XX项目
+    desc: null
   
 - 
   title: 项目经验
@@ -58,28 +63,54 @@ spec:
       
 -
   title: 技能
-  type: doubleitem      # 两列，可以用排版技能
+  type: skill      # 技能类型，不同模板处理方式不同，moderncv不支持score
   entrys:
-  - item: 语言
-    desc: PHP，Java，Golang
-  - item: 工具
-    desc: \LaTeX，pandoc，Markdown
-  - item: 数据库
-    desc: MySQL，Mongo
-  - item: 云计算
-    desc: OpenStack，Docker，Kubernetes
+  - item: PHP
+    score: 5    # 5分制打分
+    tag: 语言   # 归类
+  - item: \LaTeX
+    score: 4
+    tag: 工具
+  - item: Markdown，Pandoc
+    score: 4
+    tag: 工具
+  - item: Python
+    score: 4
+    tag: 语言
+  - item: Kubernetes
+    score: 1
+    tag: 云计算
+  - item: MySQL,Mongo
+    score: 3
+    tag: 数据库
+  - item: OpenStack
+    score: 2
+    tag: 云计算
 
 -
   title: 语言能力
-  type: itemwithcomment   # 带评价的项目，项目名称 + 描述 + 评价 适合排版语言能力
+  type: language   # 语言能力，不同模板处理方式不同，moderncv不支持score
   entrys:
   - item: 汉语
+    score: 5       # 5分制打分
     desc: 母语
     comment: 母语
   - item: 英语
+    score: 3
     desc: 熟练
     comment: 英语六级，托福xxx分
-  
+ 
+-
+  title: 兴趣爱好
+  type: interest  #兴趣爱好
+  entrys:
+  - item: 围棋
+    desc: 业余1段
+    icon: faCircle           # moderncv不支持icon
+  - item: 游戏
+    desc: 帝国时代2
+    icon: faGamepad
+
 -
   title: 其他信息
   type: cvitem      # 普通列表 项目名称 + 描述

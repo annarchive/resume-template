@@ -27,11 +27,8 @@ class CV(object):
             self.md = self.md + i['cvitem'] + "，" + i['desc'] + "\n"
 
     def doubleitem(self, item, mode="classic"):
-        l = len(item['entrys'])
-        i = 0
-        while i < l:
-            self.md = self.md + item['entrys'][i]['item'] + "，" + item['entrys'][i]['desc'] + "，" +  item['entrys'][i+1]['item'] + "，" + item['entrys'][i+1]['desc'] + "\n"
-            i = i + 2
+        for i in item['entrys']:
+            self.md = self.md + i['item'] + "，" + i['tag'] + "，" + str(i['score']) + '\n'
         
     def itemwithcomment(self, item, mode="classic"):
         for i in item['entrys']:
@@ -41,15 +38,15 @@ class CV(object):
         for i in self.spec:
             f = i['type']
             self.md = self.md + "\n# " + i['title'] + '\n'
-            if f == 'entry':
+            if f == 'education' or f == "experience":
                 self.entry(i,mode)
             if f == 'project':
                 self.project(i,mode)
             if f == 'cvitem':
                 self.cvitem(i,mode)
-            if f == 'doubleitem':
+            if f == 'skill':
                 self.doubleitem(i,mode)
-            if f == 'itemwithcomment':
+            if f == 'language':
                 self.itemwithcomment(i,mode)
         return self.md
     
