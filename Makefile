@@ -1,12 +1,8 @@
-TPL ?= templates/moderncv.tpl
-STYLE ?= classic
+TYPE ?= moderncv
 PHONE ?= 13*~****~**60
 EMAIL ?= me@annhe.net
 HOMEPAGE ?= www.annhe.net
 GITHUB ?= annProg
-COLOR ?= blue
-ALL_STYLE = casual classic oldstyle banking fancy
-ALL_COLOR = blue orange green red purple grey black
 PHOTO ?= static/photo.png
 YAML ?= sample.yml
 BUILD = build
@@ -28,13 +24,29 @@ endif
 
 FONT ?= $(FONT)
 
+# moderncv 相关变量
+ifeq ($(TYPE), moderncv)
+	TPL ?= templates/moderncv.tpl
+	STYLE ?= classic
+	COLOR ?= blue
+	ALL_STYLE = casual classic oldstyle banking fancy
+	ALL_COLOR = blue orange green red purple grey black
+endif
+
+# limecv 相关变量
+ifeq ($(TYPE), limecv)
+	TPL ?= templates/limecv.tpl
+	STYLE = none
+	COLOR = none
+endif
+
 all: all-moderncv clean
 
-moderncv:
+pdf:
 	test -d $(BUILD) || mkdir -p $(BUILD)
-	./converters/moderncv.py $(YAML) $(STYLE) > $(BUILD)/moderncv-$(STYLE).md
-	enca -L zh_CN -x UTF-8 $(BUILD)/moderncv-$(STYLE).md
-	pandoc $(BUILD)/moderncv-$(STYLE).md -o $(BUILD)/moderncv-$(STYLE)-$(COLOR).tex \
+	./converters/converter.py $(TYPE) $(YAML) $(STYLE) > $(BUILD)/$(TYPE)-$(STYLE).md
+	enca -L zh_CN -x UTF-8 $(BUILD)/$(TYPE)-$(STYLE).md
+	pandoc $(BUILD)/$(TYPE)-$(STYLE).md -o $(BUILD)/$(TYPE)-$(STYLE)-$(COLOR).tex \
 	--template=$(TPL) \
 	-V photo=$(PHOTO) \
 	-V mobile=$(PHONE) \
@@ -47,7 +59,12 @@ moderncv:
 	-V style=$(STYLE)
 	cp -f $(PHOTO) $(BUILD)/photo.png
 	cd $(BUILD) && \
-	xelatex moderncv-$(STYLE)-$(COLOR).tex
+	xelatex $(TYPE)-$(STYLE)-$(COLOR).tex
+	
+moderncv: 
+	$(MAKE) TYPE=moderncv pdf
+limecv:
+	$(MAKE) TYPT=limecv pdf
 	
 sub-moderncv-%:
 	$(MAKE) STYLE=$* moderncv
