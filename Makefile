@@ -81,10 +81,20 @@ all-moderncv: $(addprefix sub-moderncv-,$(ALL_STYLE))
 docker:
 	docker build -t $(REPO):$(TAG) .
 
-run-docker:
+run-docker-common:
 	test -d $(BUILD) || mkdir -p $(BUILD)
 	test -d $(WORK) || mkdir -p $(WORK)
 	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TYPE) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK) "$(FONT)" "$(QUOTE)" $(TPL)
+
+run-docker-limecv:
+	$(MAKE) TYPE=limecv run-docker-common
+
+run-docker-moderncv:
+	$(MAKE) TYPE=moderncv run-docker-common
+
+run-docker:
+	$(MAKE) run-docker-limecv
+	$(MAKE) run-docker-moderncv
 
 enter-docker:
 	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) -v /usr/share/fonts:/usr/share/fonts/fonts $(REPO):$(TAG)
