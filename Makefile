@@ -84,7 +84,7 @@ docker:
 run-docker:
 	test -d $(BUILD) || mkdir -p $(BUILD)
 	test -d $(WORK) || mkdir -p $(WORK)
-	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TPL) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK) "$(FONT)" "$(QUOTE)"
+	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TYPE) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK) "$(FONT)" "$(QUOTE)"
 
 enter-docker:
 	docker run -it --rm -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) -v /usr/share/fonts:/usr/share/fonts/fonts $(REPO):$(TAG)

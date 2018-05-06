@@ -57,8 +57,10 @@ RUN	apt-get update --fix-missing && \
 	zhnumber \
 	changepage \
 	fontawesome && \
+	tlmgr option -- autobackup 0 && \
 	mktexpk --mfmode / --bdpi 600 --mag 0+540/600 --dpi 540 umvs && \
 	mktexpk --mfmode / --bdpi 600 --mag 1+264/600 --dpi 864 umvs && \
+	mktexpk --mfmode / --bdpi 600 --mag 1+0/600 --dpi 600 umvs && \
 	apt-get remove -y wget xzdec gnupg perl perl-modules* python3-pip python3-setuptools python2.7* ghostscript && \
 	apt autoremove -y && \
 	apt-get clean all && \

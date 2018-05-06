@@ -1,6 +1,4 @@
 \documentclass[a4paper]{limecv}
-\usepackage{fontspec}
-\usepackage{xunicode}
 \usepackage[BoldFont,SlantFont]{xeCJK}
 
 % pandoc转换\begin \end时有问题，需要重定义命令
