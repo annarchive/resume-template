@@ -52,7 +52,7 @@ RUN	apt-get update --fix-missing && \
 	xcolor \
 	ctex \
 	moderncv marvosym gsftopk \
-	limecv parskip xstring xkeyval fira cleveref listings \
+	limecv parskip xstring xkeyval fira cleveref listings dvipdfmx \
 	ulem \
 	zhnumber \
 	changepage \
@@ -73,6 +73,7 @@ COPY static /home/resume/static
 COPY sample.yml /home/resume/
 COPY templates /home/resume/templates
 ADD init.sh /
+ADD debug.sh /
 COPY Makefile /home/resume/
 
 VOLUME ["/home/resume/build"]
