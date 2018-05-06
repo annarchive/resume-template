@@ -9,7 +9,8 @@
 ############################
 
 cd /home/resume
-if [ $TYPE=="moderncv" ];then
+TYPE=$1
+if [ "$TYPE"x = "moderncv"x ];then
 	TYPE=$1 STYLE=$2 PHONE=$3 EMAIL=$4 HOMEPAGE=$5 GITHUB=$6 COLOR=$7 PHOTO=$8 YAML=$9 WORK=${10} FONT=${11} QUOTE=${12} TPL=${13} make all-moderncv
 else
 	TYPE=$1 STYLE=$2 PHONE=$3 EMAIL=$4 HOMEPAGE=$5 GITHUB=$6 COLOR=$7 PHOTO=$8 YAML=$9 WORK=${10} FONT=${11} QUOTE=${12} TPL=${13} make $TYPE
