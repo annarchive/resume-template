@@ -1,7 +1,7 @@
 # Resume templates
 不需要掌握LaTeX，编辑yaml文件即可生成简历
 ## 软件需求
-1. LaTeX(texlive) with moderncv
+1. LaTeX(texlive) with moderncv and limecv
 2. pandoc
 3. python3(pyyaml)
 4. docker(可选)
@@ -84,7 +84,7 @@ PHOTO=work/photo.png YAML=work/ann.yml make run-docker
 ```
 
 ### 字体
-`fonts`目录会被打包进docker镜像，`make enter-docker`和`make run-docker`命令会挂载 `/usr/share/fonts`目录到容器中，因此容器中可以使用宿主机上的字体
+容器会安装文泉驿字体并默认使用文泉驿微米黑作为默认CJK字体，`make enter-docker`和`make run-docker`命令会挂载 `/usr/share/fonts`目录到容器中，因此容器中可以使用宿主机上的字体
 
 ## 预览
 请进入preview目录：[preview/](https://github.com/annProg/resume-template/tree/master/preview)
