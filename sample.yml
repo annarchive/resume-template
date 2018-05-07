@@ -1,7 +1,7 @@
-# 留空的项目可以设置为null，spec中不需要的type可以删除
+# 留空的项目可以设置为空字符串('')，spec中不需要的type可以删除
 name: 姓\ 名    # 英文名空格可以使用 '\ '
 title: XX工程师
-quote: 自我介绍（可选项，如不需要请设置为null）
+quote: 自我介绍（可选项，如不需要请设置为空字符串('')）
 spec:
 -
   title: 教育背景
@@ -12,7 +12,7 @@ spec:
     section: XX学院
     major: XX专业
     title: 硕士研究生
-    desc: 主修XXX，GPA xxx，RANK 100/100   # 可选，留空请设置为null
+    desc: 主修XXX，GPA xxx，RANK 100/100   # 可选，留空请设置为空字符串('')
   
   - entry: XX大学
     date: 2010.9 - 2010.9
@@ -30,14 +30,14 @@ spec:
     title: XX工程师
     date: 2014.7 - 2016.7
     major: XX项目
-    desc: null              # 可选，留空请设置为null
+    desc: ''             # 可选，留空请设置为空字符串('')
     
   - entry: XX公司
     section: XX部门
     title: XX工程师
     date: 2014.7 - 2016.7
     major: XX项目
-    desc: null
+    desc: ''
   
 - 
   title: 项目经验
@@ -94,7 +94,7 @@ spec:
   - item: 汉语
     score: 5       # 5分制打分
     desc: 母语
-    comment: 母语
+    comment: ''
   - item: 英语
     score: 3
     desc: 熟练
