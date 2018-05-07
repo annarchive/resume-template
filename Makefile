@@ -17,10 +17,10 @@ ARCH := $(shell uname -s)
 
 ifeq ($(ARCH), Linux)
 	FONT := WenQuanYi Micro Hei
-	QUOTE=$(shell ./converters/quote.py $(YAML))
+	QUOTE?=$(shell ./converters/quote.py $(YAML))
 else
 	FONT := SimSun
-	QUOTE=$(shell ./converters/quote.py $(YAML) |iconv -f gbk -t utf-8)
+	QUOTE?=$(shell ./converters/quote.py $(YAML) |iconv -f gbk -t utf-8)
 endif
 
 FONT ?= $(FONT)
@@ -41,11 +41,16 @@ ifeq ($(TYPE), limecv)
 	COLOR = none
 endif
 
+# 如果以下值未设置，设置为默认值
+STYLE ?= banking
+COLOR ?= orange
+TPL ?= templates/moderncv.tpl
+
 all: all-moderncv limecv clean
 
 pdf:
 	test -d $(BUILD) || mkdir -p $(BUILD)
-	./converters/converter.py $(TYPE) $(YAML) $(STYLE) > $(BUILD)/$(TYPE)-$(STYLE).md
+	./converters/converter.py "$(TYPE)" "$(YAML)" "$(STYLE)" > $(BUILD)/$(TYPE)-$(STYLE).md
 	enca -L zh_CN -x UTF-8 $(BUILD)/$(TYPE)-$(STYLE).md
 	pandoc $(BUILD)/$(TYPE)-$(STYLE).md -o $(BUILD)/$(TYPE)-$(STYLE)-$(COLOR).tex \
 	--template=$(TPL) \
