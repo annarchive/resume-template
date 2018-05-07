@@ -83,6 +83,11 @@ sub-moderncv-%:
 	
 all-moderncv: $(addprefix sub-moderncv-,$(ALL_STYLE))
 
+sub-moderncv-color-%:
+	$(MAKE) COLOR=$* moderncv
+	
+color-moderncv: $(addprefix sub-moderncv-color-,$(ALL_COLOR))
+
 docker:
 	docker build -t $(REPO):$(TAG) .
 
