@@ -81,5 +81,4 @@ $endif$
 $body$
 
 \end{cvMainContent}
-\clearpage
 \end{document}

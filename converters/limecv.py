@@ -14,7 +14,10 @@ class LimeCV(CV):
     def project(self, item):
         self.mainMd = self.mainMd + "\LimeCVCustomBegin{cvExperience}\n"
         for i in item['entrys']:
-            self.mainMd = self.mainMd + "\cvItem{{\\bf " + i['entry'] + "} \\\\\n" + i['corp'] + "，" + i['tech'] + "，" + i['date'] + " \\\\}\n"
+            self.mainMd = self.mainMd + "\n\cvItem{{\\bf " + i['entry'] + "} \\\\\n" + i['corp'] + "，" + i['tech'] + "，" + i['date'] + " \\\\\n"
+            for t in i['items']:
+                self.mainMd = self.mainMd + t + " \\\\\n"
+            self.mainMd = self.mainMd + " }\n"
         self.mainMd = self.mainMd + "\LimeCVCustomEnd{cvExperience}\n"
         
     def cvitem(self, item):
