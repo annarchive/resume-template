@@ -114,7 +114,7 @@ preview:
 	for pdf in `ls $(BUILD)/*.pdf`; \
 	do \
 		n=`echo $$pdf|cut -f2 -d'/' |cut -f1 -d'.'`; \
-		pdftopng $$pdf $(PREVIEW)/$$n; \
+		pdftocairo -png $$pdf $(PREVIEW)/$$n; \
 	done
 	
 clean:
