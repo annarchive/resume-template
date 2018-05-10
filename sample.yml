@@ -44,21 +44,19 @@ spec:
   title: 项目经验
   type: project
   entrys:
-  - entry: 基于iTop的运维体系建设
+  - entry: 基于iTop的运维系统建设
     corp: XX公司    # 在哪个公司的项目
     date: 2016.7 - 2016.9
     tech: iTop，PHP
     items:
-      - 背景
       - 内容
       - 成果
   
-  - entry: 监控体系优化
+  - entry: 监控系统优化
     corp: XX公司    # 在哪个公司的项目
     date: 2016.7 - 2016.9
     tech: Zabbix，Grafana，InfluxDB
     items:
-      - 背景
       - 内容
       - 成果
       
@@ -99,7 +97,7 @@ spec:
   - item: 英语
     score: 3
     desc: 熟练
-    comment: 英语六级，托福xxx分
+    comment: 英语六级，托福XX分，雅思XX分，TEM-8
  
 -
   title: 兴趣爱好
@@ -116,10 +114,8 @@ spec:
   title: 其他信息
   type: cvitem      # 普通列表 项目名称 + 描述  limecv模板中此类型无效
   entrys:
-  - cvitem: 技术
-    desc: 熟悉XXX技术，掌握XXX，了解XXX
-  - cvitem: 兴趣爱好
-    desc: 围棋
+  - cvitem: 项目1
+    desc: 项目描述
   - cvitem: 证书
-    desc: CCNA，英语四级，网络工程师
+    desc: CCNA，CCNP，ITILv3，RHCE，PMP
   
