@@ -27,9 +27,13 @@ class LimeCV(CV):
         self.mainMd = self.mainMd + '\LimeCVCustomBegin{cvSkills}\n'
         l = len(item['entrys'])
         i = 0
-        while i < l-1:
-            self.mainMd = self.mainMd + '\cvSkillTwo{' + str(item['entrys'][i]['score']) + '}{' + item['entrys'][i]['item'] + '}{' + str(item['entrys'][i+1]['score']) + '}{' + item['entrys'][i+1]['item'] + '}\n'
-            i = i + 2
+        while i < l:
+            if i+1 >= l:
+                self.mainMd = self.mainMd + '\cvSkillOne{' + str(item['entrys'][i]['score']) + '}{' + item['entrys'][i]['item'] + '}\n'
+                break
+            else:
+                self.mainMd = self.mainMd + '\cvSkillTwo{' + str(item['entrys'][i]['score']) + '}{' + item['entrys'][i]['item'] + '}{' + str(item['entrys'][i+1]['score']) + '}{' + item['entrys'][i+1]['item'] + '}\n'
+                i = i + 2
         self.mainMd = self.mainMd + '\LimeCVCustomEnd{cvSkills}'
         
     def experience(self, item):

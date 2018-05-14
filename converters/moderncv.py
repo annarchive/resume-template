@@ -47,9 +47,13 @@ class ModernCV(CV):
         
         l = len(entry_list)
         i = 0
-        while i < l-1:
-            self.md = self.md + "\cvdoubleitem{" + entry_list[i]['item'] + "}{" + entry_list[i]['desc'] + "}{" +  entry_list[i+1]['item'] + "}{" + entry_list[i+1]['desc'] + "}\n"
-            i = i + 2
+        while i < l:
+            if i+1 >= l:
+                self.md = self.md + "\cvdoubleitem{" + entry_list[i]['item'] + "}{" + entry_list[i]['desc'] + "}{}{}\n"
+                break
+            else:
+                self.md = self.md + "\cvdoubleitem{" + entry_list[i]['item'] + "}{" + entry_list[i]['desc'] + "}{" +  entry_list[i+1]['item'] + "}{" + entry_list[i+1]['desc'] + "}\n"
+                i = i + 2
         
     def itemwithcomment(self, item, mode="classic"):
         for i in item['entrys']:
