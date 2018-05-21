@@ -116,6 +116,12 @@ preview:
 		n=`echo $$pdf|cut -f2 -d'/' |cut -f1 -d'.'`; \
 		pdftocairo -png $$pdf $(PREVIEW)/$$n; \
 	done
+
+preview-md:
+	echo -e '# Preview\n' > $(PREVIEW)/README.md
+	for id in `ls $(PREVIEW)`;do \
+		echo -e "### $$id \n[]($$id)\n\n" >> $(PREVIEW)/README.md; \
+	done
 	
 clean:
 	cd $(BUILD) && rm -f *.out *.aux *.log *.tex *.md
