@@ -120,7 +120,8 @@ preview:
 preview-md:
 	echo -e '# Preview\n' > $(PREVIEW)/README.md
 	for id in `ls $(PREVIEW)/*.png`;do \
-		echo -e "### $$id \n![]($$id)\n\n" >> $(PREVIEW)/README.md; \
+		name=`echo $$id |cut -f2 -d'/'`; \
+		echo -e "### $$name \n![]($$name)\n\n" >> $(PREVIEW)/README.md; \
 	done
 	
 clean:
