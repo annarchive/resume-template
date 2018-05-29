@@ -1,5 +1,6 @@
 \documentclass[a4paper]{limecv}
 \usepackage[BoldFont,SlantFont]{xeCJK}
+\usepackage{zhnumber}
 
 % pandoc转换\begin \end时有问题，需要重定义命令
 \newcommand{\hideFromPandoc}[1]{#1}

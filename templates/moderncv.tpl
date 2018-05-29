@@ -11,6 +11,7 @@ $endif$
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage[BoldFont,SlantFont]{xeCJK}
+\usepackage{zhnumber}
 
 $if(font)$
 \setCJKmainfont{$font$}
