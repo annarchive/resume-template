@@ -10,12 +10,18 @@ class CV(object):
             yml=yaml.load(f)
         self.md = "% " + yml['title'] + "\n% " + yml['name'] + '\n'
         self.spec = yml['spec']
+
+    def tolist(self,v):
+        if not v:
+            return []
+        else:
+            return v
      
     def tostr(self,v):
         if not v:
             return ""
         else:
-            return v
+            return "\\\\\n".join(v)
             
     def entry(self, item, mode="classic"):
         for i in item['entrys']:

@@ -16,14 +16,13 @@ SED_I = sed -i -r
 ARCH := $(shell uname -s)
 
 ifeq ($(ARCH), Linux)
-	FONT := WenQuanYi Micro Hei
+	FONT ?= WenQuanYi Micro Hei
 	QUOTE?=$(shell ./converters/quote.py $(YAML))
 else
-	FONT := SimSun
+	FONT ?= SimSun
 	QUOTE?=$(shell ./converters/quote.py $(YAML) |iconv -f gbk -t utf-8)
 endif
 
-FONT ?= $(FONT)
 
 # moderncv 相关变量
 ifeq ($(TYPE), moderncv)

@@ -8,9 +8,16 @@ class ModernCV(CV):
     def entry(self, item, mode="classic"):
         for i in item['entrys']:
             if mode == "banking":
-                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['section'] + "}{" + i['entry'] + "}{" + i['title'] + "}{" + i['major'] + "}{" + self.tostr(i['desc']) + "}\n"
+                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['section'] + "}{" + i['entry'] + "}{" + i['title'] + "}{" + i['major'] + "}{"
             else:
-                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['section'] + "}{" + i['title'] + "}{" + i['major'] + "}{" + self.tostr(i['desc']) + "}\n"
+                self.md = self.md + "\cventry{" + i['date'] + "}{" + i['entry'] + "}{" + i['section'] + "}{" + i['title'] + "}{" + i['major'] + "}{"
+            if not i['desc']:
+                self.md = self.md + '}\n'
+            else:
+                self.md = self.md + '\n\\begin{itemize}\n'
+                for t in i['desc']:
+                    self.md = self.md + '\item ' + t + '\n'
+                self.md = self.md + '\end{itemize}\n}\n'
         
     def project(self, item, mode="classic"):
         for i in item['entrys']:
