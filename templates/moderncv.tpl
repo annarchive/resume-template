@@ -12,6 +12,14 @@ $endif$
 \usepackage{xunicode}
 \usepackage[BoldFont,SlantFont]{xeCJK}
 \usepackage{zhnumber}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+$if(onlinecv)$
+\fancyfoot[L]{\fontsize{8}{10} \selectfont 更新地址：$onlinecv$}
+$endif$                                                       
+\fancyfoot[R]{\fontsize{8}{10} \selectfont 编译日期：\zhtoday}
 
 $if(font)$
 \setCJKmainfont{$font$}

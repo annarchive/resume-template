@@ -11,6 +11,7 @@ WORK ?= work
 REPO ?= annprog/resume-template
 TAG ?= latest
 PWD := $(shell pwd)
+ONLINECV ?=
 SED_I = sed -i -r
 
 ARCH := $(shell uname -s)
@@ -54,6 +55,7 @@ pdf:
 	pandoc $(BUILD)/$(TYPE)-$(STYLE).md -o $(BUILD)/$(TYPE)-$(STYLE)-$(COLOR).tex \
 	--template=$(TPL) \
 	-V photo=$(PHOTO) \
+    -V onlinecv="$(ONLINECV)" \
 	-V mobile=$(PHONE) \
 	-V email=$(EMAIL) \
 	-V homepage=$(HOMEPAGE) \
@@ -93,7 +95,7 @@ docker:
 run-docker-common:
 	test -d $(BUILD) || mkdir -p $(BUILD)
 	test -d $(WORK) || mkdir -p $(WORK)
-	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TYPE) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK) "$(FONT)" "$(QUOTE)" $(TPL)
+	docker run -it --rm -v /usr/share/fonts:/usr/share/fonts/fonts -v $(PWD)/$(BUILD):/home/resume/$(BUILD) -v $(PWD)/$(WORK):/home/resume/$(WORK) $(REPO):$(TAG) /init.sh $(TYPE) $(STYLE) $(PHONE) $(EMAIL) $(HOMEPAGE) $(GITHUB) $(COLOR) $(PHOTO) $(YAML) $(WORK) "$(FONT)" "$(QUOTE)" $(TPL) "$(ONLINECV)"
 
 run-docker-limecv:
 	$(MAKE) TYPE=limecv run-docker-common
