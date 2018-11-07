@@ -51,7 +51,7 @@ all: all-moderncv limecv clean
 pdf:
 	test -d $(BUILD) || mkdir -p $(BUILD)
 	./converters/converter.py "$(TYPE)" "$(YAML)" "$(STYLE)" > $(BUILD)/$(TYPE)-$(STYLE).md
-	enca -L zh_CN -x UTF-8 $(BUILD)/$(TYPE)-$(STYLE).md
+	$(shell enca -L zh_CN -x UTF-8 $(BUILD)/$(TYPE)-$(STYLE).md)
 	pandoc $(BUILD)/$(TYPE)-$(STYLE).md -o $(BUILD)/$(TYPE)-$(STYLE)-$(COLOR).tex \
 	--template=$(TPL) \
 	-V photo=$(PHOTO) \
