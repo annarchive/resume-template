@@ -1,6 +1,6 @@
 # Resume templates
 
-** 此项目停止维护，请使用[PanBook](https://github.com/annProg/PanBook)替代 **
+**此项目停止维护，请使用[PanBook](https://github.com/annProg/PanBook)替代**
 
 
 不需要掌握LaTeX，编辑yaml文件即可生成简历
